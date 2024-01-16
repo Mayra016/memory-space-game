@@ -130,14 +130,14 @@ public class GuessWordService {
     		Long nextLevel = chooseNextLevel(game2);
     		getLevel(nextLevel);
     		GuessWord gameI = getLevel(nextLevel);
-	    	String clue = gameI.getClue();
+    		gameI.setLetters(gameI.getWord());	    	
+    		String clue = gameI.getClue();
 	        System.out.println("getLevel clue" + clue);
 	        newGame = new GuessWord(level, clue, gameI.getWord());
     		return newGame;
     		
     	}
         if (this.sameLevel==false) {
-        	currentGame.setLetters("");
         	currentGame.setStartTime();
         	currentGame.setAlive(true);
         	this.sameLevel = true;
@@ -167,7 +167,7 @@ public class GuessWordService {
         try {
             // Load the xlsx that contains the clue and word information for the levels and update
         	// the data basis
-            Resource resource = new ClassPathResource("static/Trivia 31.12.xlsx");
+            Resource resource = new ClassPathResource("static/Descubre la palabra 16.01.xlsx");
             File file = resource.getFile();
             try (InputStream inp = new FileInputStream(file)) {
                 Workbook workbook = new XSSFWorkbook(inp);

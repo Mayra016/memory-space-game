@@ -11,19 +11,19 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name="game")
+@Table(name="gameES")
 public class GuessWord implements GuessWordI{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @JsonProperty("level")
     private Long level;
     @Column
-    @JsonProperty("clue")
-    private String clue;
-    @Column
     @JsonProperty("word")
     private String word;
-    
+    @Column
+    @JsonProperty("clue")
+    private String clue;
+   
     @Transient
     private byte lifes;
     @Transient
@@ -67,11 +67,32 @@ public class GuessWord implements GuessWordI{
     }
     
     public void setLetters(String word) {
-    	// buttons order
+    	// buttons position order
     	 char p1 = 0, p2 = 0, p3 = 0, p4 = 0, p5 = 0, p6 = 0, p7 = 0, p8 = 0, p9 = 0, p10 = 0, p11 = 0, p12 = 0;
-    	 ArrayList<Character> positions = new ArrayList<>(Arrays.asList(p1, p2, p3, p4, p5, p6, p7, p8, p9, p10, p11, p12));
+    	 ArrayList<Character> positions = new ArrayList<>();
+
+     	// set letters values to the positions 
+     	 positions.clear();
+         IntStream.range(0, word.length()).forEach(i -> {
+                 positions.add(word.toUpperCase().charAt(i));
+         });	
+         
+         
+         // Update position values to its respective letters         
+         p1 = positions.get(0);
+         p2 = positions.get(1); 
+         p3 = positions.get(2); 
+         p4 = positions.get(3); 
+         p5 = positions.get(4);
+     	 p6 = positions.get(5); 
+     	 p7 = positions.get(6); 
+     	 p8 = positions.get(7); 
+     	 p9 = positions.get(8); 
+     	 p10 = positions.get(9); 
+     	 p11 = positions.get(10); 
+     	 p12 = positions.get(11);
     	
-    	// possible letter's dispositions
+    	// Possible letter's dispositions
     	 ArrayList<Character> d1 = new ArrayList<>(Arrays.asList( p7, p3, p4, p8, p12, p11, p10, p9, p5, p1, p2, p6 ));
     	 ArrayList<Character> d2 = new ArrayList<>(Arrays.asList( p7, p8, p12, p11, p10, p9, p5, p6, p1, p2, p3, p4 ));
     	 ArrayList<Character> d3 = new ArrayList<>(Arrays.asList( p7, p11, p12, p8, p4, p3, p2, p6, p10, p9, p5, p1 ));
@@ -99,14 +120,10 @@ public class GuessWord implements GuessWordI{
     	 ArrayList<Character> d25 = new ArrayList<>(Arrays.asList( p3, p7, p6, p2, p1, p5, p9, p10, p11, p12, p8, p4 ));
     	 ArrayList<Character> d26 = new ArrayList<>(Arrays.asList( p3, p7, p4, p8, p12, p11, p10, p9, p5, p1, p2, p6 ));
     	 
-    	// set letters values to the positions 
-        IntStream.range(0, word.length()).forEach(i -> {
-                letters.add(word.charAt(i));
-                positions.add(word.charAt(i));
-        });	
+
         
         // select a random position for this level
-        ArrayList<ArrayList> availablePositions = new ArrayList<>(Arrays.asList(d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25));
+        ArrayList<ArrayList<Character>> availablePositions = new ArrayList<>(Arrays.asList(d1,d2,d3,d4,d5,d6,d7,d8,d9,d10,d11,d12,d13,d14,d15,d15,d16,d17,d18,d19,d20,d21,d22,d23,d24,d25));
         byte randomPos = (byte) Math.round((Math.random() * availablePositions.size()));
         this.letters = availablePositions.get((randomPos));
     }

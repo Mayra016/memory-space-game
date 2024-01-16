@@ -33,6 +33,7 @@ public class APIController {
         System.out.println(currentGame.getLetters() + "Letters al llamar al /getLevel");
         Map<String, Object> response = new HashMap<>();
         response.put("letters", currentGame.getLetters());
+        response.put("word", currentGame.getWord());
     	return response;
     }
     

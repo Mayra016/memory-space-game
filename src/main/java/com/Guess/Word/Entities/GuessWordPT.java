@@ -10,7 +10,7 @@ import jakarta.persistence.*;
 
 
 @Entity
-@Table(name="game")
+@Table(name="gamePT")
 public class GuessWordPT implements GuessWordI{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

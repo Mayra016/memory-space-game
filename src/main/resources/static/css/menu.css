@@ -1,0 +1,165 @@
+:root {
+  --purple: #5100A2;
+  --yellow: #ffe100;
+  --pink: #dc8add;
+  --green: rgb(24, 255, 0);
+  --blue: #4EE3FB;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--purple);
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 130%), var(--purple);
+
+}
+
+.page-background {
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    text-align: center;
+    height: 100%;
+}
+
+.button, .menu-btn {
+    font-family: 'Spicy Rice', serif;
+    font-size: 20px;
+    background-color: var(--yellow);
+    border-color: var(--pink);
+    border-radius: 10px;
+    border-width: 5px;
+    width: auto;
+    margin-bottom: 20px;
+    color: var(--purple);
+    padding: 0px 15px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease;
+}
+
+.button:hover, .button-flags:hover{
+    border-color: var(--blue);
+    transform: scale(1.07);
+}
+
+.btns {
+    display: flex;
+    flex-direction: column;
+    margin-top: 30px;
+    align-items: center;
+    padding-top: 30px;
+}
+
+div .tittle, h1 {
+    border-color: var(--yellow);
+    -webkit-text-stroke: 2px var(--yellow);
+    text-stroke: 1px var(--yellow);
+    font-family: 'Spicy Rice', serif; /* Corregir el nombre de la fuente */
+    color: var(--purple);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    font-size: 50px;
+}
+
+.ornitorrinco img {
+	background-image: url('/images/ornitorrincoVF.png');
+	width: 200px;
+	height: 200px;
+	transition: transform 0.3s ease;
+}
+
+.ornitorrinco img:hover{
+	transform: translateY(-50px);
+}
+
+.flags {
+	display: block;
+	background-color: transparent;
+	width: 80px;
+	justify-content: center;
+}
+
+.button-flags {
+	display: flex;
+    background-color: var(--yellow);
+    border-color: var(--purple);
+    border-radius: 10px;
+    border-width: 5px;
+    width: 110px;
+    margin-bottom: 20px;
+    color: var(--purple);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    text-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    justify-content: center;
+}
+
+/* INFO PAGE */
+
+.menu-btn {
+	width: auto;
+}
+
+.menu-btn:hover {
+    border-color: #4EE3FB;
+    transform: scale(1.07);	
+}
+.menu-logo {
+	width: 20px;
+	height: 20px;
+	padding-bottom: 5px;
+	margin-rigth: 5px;	
+}
+.header-bar {
+	display: flex;
+	justify-items: left;
+	padding-left: 130px;
+	padding-bottom: 100px;
+}
+
+.intro-text {
+	padding-bottom: 40px;
+	color: white;
+	    font-family: 'Spicy Rice', serif;
+    font-size: 20px;
+}
+
+.youtube-logo {
+	width: 40px;
+	heigth: 40px;
+}
+
+a {
+	text-decoration: none;
+	color: white;	
+}
+
+a:hover {
+	color: var(--yellow);
+}
+
+.menu-btn {
+	display: flex;
+	flex-direction: row;
+	width: auto;
+	padding: 0px 8px;
+	gap: 3px;
+}
+
+.menu-logo {
+	width: 20px;
+	height: 20px;
+	margin-top: 10px;
+	margin-rigth: 5px;	
+}
+
+.menu-btn h5 {
+	margin-top: 6px;
+}

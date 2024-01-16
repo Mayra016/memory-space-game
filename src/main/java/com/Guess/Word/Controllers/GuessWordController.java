@@ -117,10 +117,11 @@ public class GuessWordController {
     public String generateLevel() {
     	Long nextLevel = service.generateLevel();
     	playedLevelsPersistent = persistentData.getPlayedLevels();
-    	while (playedLevelsPersistent.contains(nextLevel)) {
-    		nextLevel = service.generateLevel();
+    	if (playedLevelsPersistent!=null) {
+	    	while (playedLevelsPersistent.contains(nextLevel)) {
+	    		nextLevel = service.generateLevel();
+	    	}
     	}
-    	
     	return "redirect:/".concat(nextLevel.toString());
     }
     
@@ -129,7 +130,10 @@ public class GuessWordController {
     	return "lost";
     }
     
-
+    @GetMapping("/{level}/") 
+    public String getLost() {
+    	return "lost";
+    }
     
     // CHECK THE LANGUAGE TO OBTAIN THE LEVEL FROM THE RESPECTIVE DATA BASIS
     @GetMapping("/{level}")

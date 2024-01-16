@@ -8,11 +8,14 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=EB+Garamond:wght@600;700;800&family=Spicy+Rice&display=swap" rel="stylesheet">
 	<link rel="icon" href="/images/ornitorrincoVF.png" type="image/x-icon">
-	<link rel="stylesheet" type="text/css" href="/css/level.css">
+	<link rel="stylesheet" type="text/css" href="/css/lost.css">
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
 </head>
-<body>
+<body onload="lost()">
 	<div class="page-background">
 		<div class="container" th:object="${trivia}">
 			<div class="header-bar">
@@ -71,11 +74,31 @@
 				
 				
 			</div>
+				<template id="my-template" class="my-template" color="#05587C">
+				  <swal-title th:text="#{LOST}" color="#ffffff">
+				    ¡Has perdido!
+				  </swal-title>
+			      <swal-text color="#ffffff">
+			          Tu score es: <span th:text="${trivia.score}"></span>
+			      </swal-text>
+				  <swal-icon type="warning" color="red"></swal-icon>
+				  <swal-button th:text="#{NEW-GAME}" class="button" text-color="#ffe100" type="confirm" onclick="backToMenu()">
+				    Juega otra vez
+				  </swal-button>
+				  <swal-param name="allowEscapeKey" value="false" />
+				  <swal-param
+				    name="customClass"
+				    value='{ "popup": "my-popup" }' />
+				  <swal-function-param
+				    name="didOpen"
+				    value="popup => console.log(popup)" />
+				</template>
+			</div>
 			
 			<div class="btn-div">
-				<input class="button" id="userInput" type="button" th:value="#{SEND}" onclick="checkAnswer()"/>
+				<input class="button" id="userInput" type="button" th:value="#{SEND}" onclick=""/>
 			</div>
-
+			
 		    <audio autoplay loop th:volume="0.5">
 		        <source th:src="@{/music/musik.mp3}" type="audio/mp3">
 		    </audio>		
@@ -84,47 +107,30 @@
 	</div>
 		
 <script th:inline="javascript">
-	fetchLetters();
-	
-	var userInput = [];
-	var ids = [];
-	
-	function checkAnswer() {
-		var level = /*[[${trivia.level}]]*/;
-		var wordInput = userInput.join("");
-        if (wordInput == null || wordInput === "" || wordInput.length < 1) {
-            wordInput="!!@@";
-        }
-        var url = '/checkAnswer/' + level + '/' + wordInput;	    
-	    console.log("Userinput javascript", wordInput);
-	    window.location.href = url;
-	};	
-	
-	function menu() {
-		window.location.href = "/menu";
-	}
-	
-	function updateInput(id){
-		var letterElement = document.getElementById('p' + id);
-		var letter = letterElement.value;
-		console.log(letter);
-		if (!ids.includes(id)) {
-			userInput.push(letter);
-			ids.push(id);
-			letterElement.classList.add('buttonsActive');
-			
-		} else {
-			var getId = ids.indexOf(id);
-			ids.splice(getId,1);
-			userInput.splice(getId,1);
-			console.log(getId, "get id");
-			letterElement.classList.add('buttons');
-			letterElement.classList.remove('buttonsActive');
-		}		
-		console.log(userInput);
-	}
-	
-	async function fetchLetters() {
+	fetchLetters()
+    document.addEventListener("DOMContentLoaded", function() {
+        lost();
+    });
+
+    function lost() {
+        var scoreElement = document.getElementById("score");
+        console.log("Se ha llamado la función");
+
+        Swal.fire({
+			customClass: { confirmButton: 'swalBtnColor' },
+            template: "#my-template"
+        })
+        .then((result) => {
+            if (result.isConfirmed) {
+                var url = "/menu";
+                window.location.href = url;
+            }
+        });
+
+
+    }
+    
+    async function fetchLetters() {
 	    var csrfTokenElement = document.querySelector("meta[name='_csrf']");
 	    var csrfToken = csrfTokenElement ? csrfTokenElement.getAttribute("content") : null;
 	
@@ -159,14 +165,12 @@
 	        console.error("Error fetching letters:", error);
 	    });
 	}
-	
-	// Llamar a fetchLetters al cargar la página
-	//window.onload = fetchLetters;
-	
-	// Llamar a fetchLetters cada segundo
-	//time = setInterval(fetchLetters, 3000);
-	
-	
+    
+    function backToMenu() {
+		var url = "/menu";
+        window.location.href = url;
+	}
 </script>
+
 </body>
 </html>

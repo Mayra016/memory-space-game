@@ -130,10 +130,6 @@ public class GuessWordController {
     	return "lost";
     }
     
-    @GetMapping("/{level}/") 
-    public String getLost() {
-    	return "lost";
-    }
     
     // CHECK THE LANGUAGE TO OBTAIN THE LEVEL FROM THE RESPECTIVE DATA BASIS
     @GetMapping("/{level}")

@@ -138,6 +138,7 @@ public class SecurityConfig extends WebSecurityConfiguration {
         configuration.addAllowedOrigin("https://peculiaritiesoftheworld.blogspot.com");
         configuration.addAllowedOrigin("http://localhost:8080"); 
         configuration.addAllowedOrigin("http://localhost:8443"); 
+        configuration.addAllowedOrigin("https://guesswordgame.onrender.com/"); 
         configuration.addAllowedMethod("GET");
         configuration.addAllowedMethod("POST");
         configuration.addAllowedHeader("Access-Control-Allow-Headers");

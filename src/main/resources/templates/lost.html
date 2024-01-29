@@ -17,14 +17,14 @@
 </head>
 <body onload="lost()">
 	<div class="page-background">
-		<div class="container" th:object="${trivia}">
+		<div class="container" th:object="${game}">
 			<div class="header-bar">
 				<button class="menu-btn" onclick="menu()">
 				    <img class="menu-logo" src="/images/menu-logo.png" alt="menu logo" />
 				    <h5 th:text="#{MENU}"></h5>
 				</button>
 				<div class="score">
-					<h5>Score: <h6 th:text="${trivia.score}"></h6></h5>
+					<h5>Score: <h6 th:text="${game.score}"></h6></h5>
 				</div>	
 			</div>
 			<div class="tittle">

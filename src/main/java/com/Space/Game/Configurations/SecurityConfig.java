@@ -1,4 +1,4 @@
-package com.Guess.Word.Configurations;
+package com.Space.Game.Configurations;
 
 import java.io.IOException;
 
@@ -31,7 +31,7 @@ import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 import org.springframework.web.filter.OncePerRequestFilter;
 
-import com.Guess.Word.Services.CustomUserDetailsService;
+import com.Space.Game.Services.CustomUserDetailsService;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -51,12 +51,6 @@ import org.springframework.context.annotation.Configuration;
 @Order(1) 
 @EnableGlobalMethodSecurity(prePostEnabled = true)
 public class SecurityConfig extends WebSecurityConfiguration {
-	@Value("${USERNAME}")
-	String username;
-	@Value("${PASSWORD}")
-	String password;
-	
-	
 	
 
  
@@ -105,28 +99,6 @@ public class SecurityConfig extends WebSecurityConfiguration {
 
             return http.build();
           }
-
-    @Bean
-	public PasswordEncoder passwordEncoder() {
-		
-	    return new BCryptPasswordEncoder();
-	}
-	
-	@Bean
-	public DaoAuthenticationProvider authenticationProvider() {
-	    DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
-	    authProvider.setUserDetailsService(userDetailsService());
-	    authProvider.setPasswordEncoder(passwordEncoder());
-	    return authProvider;
-	}
-	
-
-    
-    @Bean
-    public CustomUserDetailsService userDetailsService() {
-        return new CustomUserDetailsService();
-    }
-
 
 
     @Bean

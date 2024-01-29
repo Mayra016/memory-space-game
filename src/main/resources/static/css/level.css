@@ -1,7 +1,7 @@
 :root {
-  --purple: #5100A2;
-  --yellow: #ffe100;
-  --pink: #dc8add;
+  --purple: rgb(34, 80, 89);
+  --yellow: rgb(188, 191, 196);
+  --pink: rgb(17, 227, 222);
 }
 
 body {
@@ -11,10 +11,9 @@ body {
     align-items: center;
     justify-content: left;
     text-align: left;
-    background-color: var(--purple);;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 130%), var(--purple);
+    background-color: black;
+    /*background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 30%, rgba(0, 0, 0, 0.7) 130%), var(--purple);
+	*/
 
 }
 
@@ -26,11 +25,13 @@ body {
 .container {
     text-align: left;
     height: 100%;
+    position: fixed;
+    z-index: 1;
 }
 
 .button, .menu-btn, .score, .buttons, .buttonsActive {
     font-family: 'Spicy Rice', serif;
-    font-size: 30px;
+    font-size: 20px;
     background-color: var(--yellow);
     border-color: var(--pink);
     border-radius: 10px;
@@ -45,9 +46,8 @@ body {
 }
 
 .buttons, .buttonsActive {
-	font-size: 40px;
+	font-size: 20px;
 	width: 80px;
-
 }
 
 .btn-line {
@@ -74,13 +74,13 @@ body {
 }
 
 .menu-btn:hover, .buttons:hover {
-    border-color: #4EE3FB;
+    border-color: rgb(129, 61, 156);
     transform: scale(1.07);	
 }
 
 .menu-logo {
-	width: 20px;
-	height: 20px;
+	width: 15px;
+	height: 15px;
 	margin-top: 8px;
 	margin-rigth: 5px;	
 }
@@ -97,14 +97,14 @@ body {
 	padding: 3px 8px;
 	gap: 10px;
 	border: 5px solid var(--pink);
-	margin-right: 200px;
+	margin-right: 296px;
 }
 
 .score h5, .score h6 {	
 	margin-top: 3px;
 	margin-bottom: 0;
 	padding-bottom: 0;
-	font-size: 20px;
+	font-size: 15px;
 }
 
 .button:hover {
@@ -117,10 +117,9 @@ body {
 }
 
 .btns {
-    display: flex;
-    flex-direction: column;
+    display: inline-block;
     margin-top: 30px;
-    align-items: center;
+    justify-items: center;
     padding-top: 30px;
 }
 
@@ -141,38 +140,11 @@ div .tittle, h1 {
 	display: inline-block;
 }
 
-h2 {
 
-    color: #ffffff;
-    font-family: 'Spicy Rice', serif; 
-    font-size: 23px;
-    margin: 0;
-}
-
-h3 {
-	background-color: var(--yellow);
-	font-family: 'Spicy Rice', serif;
-	padding: 5px;
-}
-
-.clue {
-	display: inline-block;	
-	margin-top: 10px;
-}
-
-.word-section {
-	display: inline-block;
-}
-
-p, span {
-	font-family: 'Bebas Neue', sans-serif;
-	color: var(--yellow);
-	padding: 2px;
-	font-size: 25px;
-}
 	/** HEART ANIMATION **/
 
 .lives img {
+
 	width: 50px;	
 	padding-bottom: 20px;
 	padding-left: 10px;
@@ -182,8 +154,10 @@ p, span {
 }
 
 div .lives {
-	position: relative; 
-	padding-right: 200px;	
+	padding-right: 100px;	
+	margin-top: 600px;
+	display: flex;
+	flex-direction: row;
 }
 
 div .lives img:hover {
@@ -208,39 +182,243 @@ div .lives img:hover {
 	left: 0;
 }
 
-.tittle, .header-bar {
+.header-bar {
 	display: flex;
 	flex-direction: row;
 	justify-content: space-between;
-}
-
-
-
-.word {
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	align-items: center;
+	margin-top: -650px;
 	position: relative;
-	text-align: center;
-	margin-top: 50px;
+	top: 180px;
 }
 
-span {
-	display: block;
-	font-size: 35px;
-	position: absolute;
-	left: center;
-	top: -15px;
-	margin-top: auto;
-	text-align: center;
-	justify-items: center;
+.tittle {
+	display: inline-block;
+	justify-content: space-between;
+	margin-top: -650px;
+	margin-left: 700px;
+	text-align: right;
+}
+
+/* COLOR BUTTONS */
+
+.btn-red {
+	background-image: url("/images/BtnRojoOff.png");
+	position: fixed;
+    width: 350px;
+	top: 95px;
+	left: 38px;
+	cursor: pointer;
+	clip: rect(403px, 130px, 437px, 97px);	
+}
+
+
+.btn-green {
+	background-image: url("/images/BtnVerdeOff.png");
+	position: fixed;
+	width: 350px;
+	top: 95px;
+	left: -5px;
+	cursor: pointer;
+	clip: rect(403px, 212px, 437px, 178px);
+	
+}
+
+
+.btn-blue {
+	background-image: url("/images/BtnAzulOff.png");
+	position: fixed;
+	width: 350px;
+	top: 95px;
+	left: -3px;
+	cursor: pointer;
+	clip: rect(403px, 252px, 437px, 217px);	
+	/* rect(top, right, bottom, left) */
+}
+
+
+.btn-yellow {
+	background-image: url("/images/BtnAmarilloOff.png");
+	position: fixed;
+	width: 350px;
+	top: 95px;
+	left: 115px;
+	clip: rect(403px, 172px, 437px, 137px);	
+	/* rect(top, right, bottom, left) */
+}
+
+
+
+.btns {
+	display: inline-block;
+	position: fixed;
+	flex-direction: row;
+	gap: 0px;
+	margin: 0px;
+	padding: 0px;
 	justify-content: center;
-	letter-spacing: 2px;
-	padding-left: -5px;
-
+	z-index: 10;
 }
 
+.btns .button-image-red {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+	top: 500px;
+	left: 135px;
+	z-index: 11;
+	background-image: url("/images/BtnRojoOn.png") !important;
+}
+
+.btns .button-image-red:hover img{
+	filter: brightness(1.2);
+}
+
+.btns .button-image-red:hover {
+	box-shadow: 0 0 20px 2px rgba(173, 10, 10, 0.8);
+}
+
+.btns .button-image-green {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    background: transparent;
+    width: 30px;
+    height: 30px;
+	top: 500px;
+	left: 175px;
+	z-index: 11;
+	background-image: url("/images/BtnVerdeOn.png") !important;
+		
+}
+
+.btns .button-image-green:hover img {
+	filter: brightness(1.2);
+}
+
+.btns .button-image-green:hover {
+	box-shadow: 0 0 20px 2px rgba(173, 255, 47, 0.8);
+}
+
+.btns .button-image-blue {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
+	top: 500px;
+	left: 215px;
+	z-index: 11;	
+}
+
+.btns .button-image-blue:hover img {
+	filter: brightness(1.2);
+}
+
+.btns .button-image-blue:hover {
+	box-shadow: 0 0 20px 2px rgba(20, 49, 255, 0.8);
+}
+
+.btns .button-image-yellow {
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: fixed;
+    width: 30px;
+    height: 30px;
+	top: 500px;
+	left: 254px;
+	z-index: 11;
+	background-color: transparent;
+	background-image: url("/images/BtnVerdeOn.png") !important;
+		
+}
+
+.btns .button-image-yellow:hover img{
+	filter: brightness(1.2);
+	
+}
+
+.btns .button-image-yellow:hover {
+	box-shadow: 0 0 20px 1px rgba(255, 255, 0, 0.8);
+}
+
+/* LEVEL MOVES */
+
+/* LIGTH AREA
+TOP-LEFT POINT 
+	top: 155px;
+	left: 18px;
+	
+BOTTOM-LEFT POINT
+	top: 190px;
+	left: 18px;	
+	
+BOTTOM-RIGHT POINT
+	top: 190px;
+	left: 160px;	
+	
+TOP-RIGHT POINT 
+	top: 155px;
+	left: 160px;
+*/	
+
+
+.red-ligth {
+	background-image: url("/images/LuzRoja.png");
+	position: fixed;
+    width: 350px;
+	display: none;
+	z-index: 10;
+}
+
+.green-ligth {
+	background-image: url("/images/LuzVerde.png");
+	position: fixed;
+    width: 350px;
+	display: none;
+	z-index: 10;
+}
+
+.blue-ligth {
+	background-image: url("/images/LuzAzul.png");
+	position: fixed;
+    width: 350px;
+	display: none;
+	z-index: 10;
+}
+
+.yellow-ligth {
+	background-image: url("/images/LuzAmarillo.png");
+	position: fixed;
+    width: 350px;
+	display: none;
+	z-index: 10;
+}
+
+.level-moves {
+	z-index: 10;
+}
+
+.spaceship-img {
+	z-index: 3;
+	width: 400px;
+	margin: 0px;
+	padding: 0px;
+}
+
+.container {
+	background-image: url("/images/NaveEspacial.png");
+	z-index: 4;
+	width: 400px;
+	display: block;
+}
 
 
 @keyframes rotateDashed {
@@ -273,7 +451,24 @@ span {
     word-spacing: 25px;    
     transform: translateX(-50%);
     margin-left: 50%;
+}
 
+
+.menu-btn h5 {
+	font-size: 15px;
+}
+
+.visible {
+	display: flex;
+	position: fixed;
+    width: 350px;
+	z-index: 10;
+}
+
+.menu-btn {
+	display: flex;
+	flex-direction: column;
+	width: auto;
 }
 
 /* LOWER THAN 800 PX DISPLAYS */
@@ -293,7 +488,7 @@ span {
       gap: 290px;
 	}  
 
-	}	
+}
 
 
 

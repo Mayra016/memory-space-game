@@ -8,11 +8,11 @@
 		<version>3.2.1</version>
 		<relativePath/> 
 	</parent>
-	<groupId>com.Guess.Word</groupId>
-	<artifactId>GuessTheWord</artifactId>
+	<groupId>com.Space.Game</groupId>
+	<artifactId>MemorySpaceGame</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>GuessTheWord</name>
-	<description>Guess the word game</description>
+	<name>SpaceGame</name>
+	<description>Test your memory in our spaceship</description>
 	<properties>
 		<java.version>17</java.version>
 	</properties>
@@ -39,8 +39,8 @@
 		    <artifactId>spring-boot-starter-thymeleaf</artifactId>
 		</dependency>
 
-
-                <!-- https://mvnrepository.com/artifact/org.springframework.data/spring-data-jpa -->
+	<!--
+              
         <dependency>
             <groupId>org.springframework.data</groupId>
             <artifactId>spring-data-jpa</artifactId>
@@ -51,7 +51,7 @@
 		    <artifactId>spring-boot-starter-data-jpa</artifactId>
 		</dependency>
         
-		               <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+		              
 		<dependency>
 		    <groupId>mysql</groupId>
 		    <artifactId>mysql-connector-java</artifactId>
@@ -59,7 +59,7 @@
 		</dependency>
 
         
-		<!-- https://mvnrepository.com/artifact/org.hibernate/hibernate-core -->
+		
 		<dependency>
 		    <groupId>org.hibernate</groupId>
 		    <artifactId>hibernate-core</artifactId>
@@ -72,20 +72,19 @@
 		    <artifactId>validation-api</artifactId>
 		    <version>2.0.1.Final</version>
 		</dependency>
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi 5.2.3-->
+       
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi</artifactId>
             <version>5.2.3</version>
         </dependency>
 
-        <!-- https://mvnrepository.com/artifact/org.apache.poi/poi-ooxml 5.2.3-->
         <dependency>
             <groupId>org.apache.poi</groupId>
             <artifactId>poi-ooxml</artifactId>
             <version>5.2.3</version>
         </dependency>
-        
+        -->
         <!-- TO RESOLVE FAVICON.ICO PROBLEM -->
         <dependency>
 		    <groupId>org.springframework.boot</groupId>
@@ -131,6 +130,7 @@
 				</executions>
 
 			</plugin>
+
 		</plugins>
 	</build>
 

@@ -1,4 +1,4 @@
-package com.Guess.Word.Configurations;
+package com.Space.Game.Configurations;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.web.server.ConfigurableWebServerFactory;
